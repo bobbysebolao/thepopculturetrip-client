@@ -1,7 +1,6 @@
 {
   "name": "whatpm-client",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "watch": "vue-cli-service serve --host localhost",
     "build": "vue-cli-service build",
