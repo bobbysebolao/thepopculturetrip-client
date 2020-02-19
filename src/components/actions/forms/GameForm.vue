@@ -3,23 +3,23 @@
     <div class="form-element">
       <label for="title">
         <span class="form-label">Title</span>
-        <input id="title" v-model.trim="album.title" class="form-input" type="text" />
+        <input id="title" v-model.trim="game.title" class="form-input" type="text" />
       </label>
     </div>
 
     <div class="form-element">
-      <label for="artist">
-        <span class="form-label">Artist</span>
-        <input id="artist" v-model.trim="album.artist" class="form-input" type="text" />
+      <label for="developer">
+        <span class="form-label">Developer</span>
+        <input id="developer" v-model.trim="game.developer" class="form-input" type="text" />
       </label>
     </div>
 
     <div class="form-element">
       <label for="published_year">
-        <span class="form-label">Release date</span>
+        <span class="form-label">Publishing date</span>
         <input
           id="published_year"
-          v-model.trim="album.published_year"
+          v-model.trim="game.published_year"
           class="form-input"
           type="number"
         />
@@ -27,18 +27,18 @@
     </div>
 
     <div class="form-element">
-      <select-year :item="album" :type="'album'" />
+      <select-year :item="game" :type="'game'" />
     </div>
 
     <div class="form-element">
       <label for="redo">
         <input
           id="redo"
-          v-model.trim="album.redo"
+          v-model.trim="game.redo"
           class="form-input form-input-inline"
           type="checkbox"
         />
-        <span class="form-label form-label-inline">This was a re-listen!</span>
+        <span class="form-label form-label-inline">This was a re-play!</span>
       </label>
     </div>
 
@@ -56,10 +56,10 @@
 import SelectYear from "./SelectYear";
 
 export default {
-  name: "AlbumForm",
+  name: "GameForm",
   components: { SelectYear },
   props: {
-    album: Object,
+    game: Object,
     errors: Array
   }
 };

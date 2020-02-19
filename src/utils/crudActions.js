@@ -17,7 +17,7 @@ export function fetchAllItemsByYear(year) {
 /**
  * Fetch item given its type and id
  * @function
- * @param {string} type - The item type. Can be book, movie or show.
+ * @param {string} type - The item type. Can be book, movie, show, album, or game.
  * @param {string} id - The id of the item, passed through $this.route.params.id
  */
 export function fetchSingleItemById(type, id) {
@@ -29,7 +29,7 @@ export function fetchSingleItemById(type, id) {
 /**
  * Create a new item
  * @function
- * @param {string} type - The item type. Can be book, movie or show.
+ * @param {string} type - The item type. Can be book, movie, show, album, or game.
  * @param {object} obj - The newly created item object
  * @param {object} router - Vue router (or a mock)
  */
@@ -47,7 +47,7 @@ export function createItem(type, obj, router) {
 /**
  * Update an existing item
  * @function
- * @param {string} type - The item type. Can be book, movie or show.
+ * @param {string} type - The item type. Can be book, movie, show, album, or game.
  * @param {string} id - The id of the item, passed through $this.route.params.id
  * @param {object} obj - The existing item object
  * @param {object} router - Vue router (or a mock)
@@ -66,7 +66,7 @@ export function updateItem(type, id, obj, router) {
 /**
  * Delete item given its type and id
  * @function
- * @param {string} type - The item type. Can be book, movie or show.
+ * @param {string} type - The item type. Can be book, movie, show, album, or game.
  * @param {string} id - The id of the item, passed through $this.route.params.id
  * @param {string} router - Vue router (or a mock)
  */

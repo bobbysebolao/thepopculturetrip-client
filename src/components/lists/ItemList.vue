@@ -28,6 +28,12 @@
         :amountOfAlbums="items.allAlbums.length"
         :isLoggedIn="isLoggedIn"
       />
+      <game-list
+        v-if="items.allGames"
+        :allGames="items.allGames"
+        :amountOfGames="items.allGames.length"
+        :isLoggedIn="isLoggedIn"
+      />
     </section>
   </section>
 </template>
@@ -38,6 +44,7 @@ import BookList from "./BookList";
 import MovieList from "./MovieList";
 import ShowList from "./ShowList";
 import AlbumList from "./AlbumList";
+import GameList from "./GameList";
 
 export default {
   name: "ItemList",
@@ -45,7 +52,8 @@ export default {
     BookList,
     MovieList,
     ShowList,
-    AlbumList
+    AlbumList,
+    GameList
   },
   props: {
     yearSelection: {
@@ -76,8 +84,17 @@ export default {
     noAlbums() {
       return this.items && this.items.allAlbums < 1;
     },
+    noGames() {
+      return this.items && this.items.allGames < 1;
+    },
     noItems() {
-      return this.noShows && this.noMovies && this.noBooks && this.noAlbums;
+      return (
+        this.noShows &&
+        this.noMovies &&
+        this.noBooks &&
+        this.noAlbums &&
+        this.noGames
+      );
     }
   },
   watch: {
@@ -119,7 +136,8 @@ export default {
   .book-list,
   .movie-list,
   .tvshow-list,
-  .album-list {
+  .album-list,
+  .game-list {
     width: calc(100%);
     @media (min-width: $mq-tablet) {
       width: calc(100% / 3.7);
