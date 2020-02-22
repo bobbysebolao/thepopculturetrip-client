@@ -20,9 +20,9 @@ export default {
     try {
       await fetchAllItemsByYear(getCurrentYear())
         .then(response => {
-          const { books, movies, shows } = response;
+          const { books, movies, shows, albums, games } = response;
           this.chartdata = {
-            labels: ["2020"],
+            labels: [`${getCurrentYear()}`],
             datasets: [
               {
                 label: "books",
@@ -38,6 +38,16 @@ export default {
                 label: "tvshows",
                 backgroundColor: "#e78fb3",
                 data: [shows]
+              },
+              {
+                label: "albums",
+                backgroundColor: "#E7D78F",
+                data: [albums]
+              },
+              {
+                label: "games",
+                backgroundColor: "#DF943A",
+                data: [games]
               }
             ]
           };

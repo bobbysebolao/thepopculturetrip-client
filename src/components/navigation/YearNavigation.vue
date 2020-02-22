@@ -11,15 +11,15 @@
 </template>
 
 <script>
-import { getCurrentYear, range } from '../../utils/helpers';
+import { getCurrentYear, range } from "../../utils/helpers";
 
 export default {
-  name: 'YearNavigation',
+  name: "YearNavigation",
   methods: {
     getRange() {
-      return range(2007, getCurrentYear());
-    },
-  },
+      return range(2019, getCurrentYear());
+    }
+  }
 };
 </script>
 
@@ -37,7 +37,10 @@ export default {
     margin: 0.625em 0;
   }
 
-  a, a:active, a:visited, a:focus {
+  a,
+  a:active,
+  a:visited,
+  a:focus {
     padding: 0.625em;
     color: $outerspace-grey;
 
