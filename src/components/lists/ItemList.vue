@@ -131,6 +131,7 @@ export default {
   justify-content: space-between;
   @media (min-width: $mq-tablet) {
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .book-list,
@@ -140,7 +141,7 @@ export default {
   .game-list {
     width: calc(100%);
     @media (min-width: $mq-tablet) {
-      width: calc(100% / 3.7);
+      width: calc(100% / 5.5);
     }
 
     ul,
@@ -152,20 +153,28 @@ export default {
 
     li {
       counter-increment: list;
-      list-style-type: none;
+      // list-style-type: none;
+      list-style-position: inside;
       position: relative;
-      margin-left: 15px;
-      padding-left: 10px;
+      // margin-left: 15px;
+      margin-bottom: 15px;
+      // padding-left: 10px;
       line-height: 2em;
+      border-bottom: 1px solid #e8e8e8;
+      // border: 1px solid black;
 
-      &::before {
-        color: #22113e;
-        content: counter(list) ".";
-        position: absolute;
-        left: -25px;
-        text-align: right;
-        width: 20px;
-      }
+      // &::before {
+      //   color: #22113e;
+      //   content: counter(list) ".";
+      //   position: absolute;
+      //   left: -25px;
+      //   text-align: right;
+      //   width: 20px;
+      // }
+    }
+
+    li:last-of-type {
+      border-bottom: none;
     }
   }
 

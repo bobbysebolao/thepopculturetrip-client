@@ -4,7 +4,8 @@
     <ol v-if="allMovies">
       <li v-for="movie in allMovies" :key="movie._id">
         <span :class="$style.title">{{ movie.title }}</span>
-        (<span :class="$style.director">{{ movie.director }}, {{ movie.published_year }}</span>)
+        (
+        <span :class="$style.director">{{ movie.director }}, {{ movie.published_year }}</span>)
         <span v-if="movie.redo" :class="$style.redo">rewatch</span>
 
         <div v-if="isLoggedIn" class="edit-item">
@@ -13,41 +14,37 @@
         </div>
       </li>
     </ol>
-    <div class="total" v-if="allMovies.length > 0">
-      Total: {{ amountOfMovies }}
-    </div>
-    <div class="total" v-else>
-      No movies logged this year.
-    </div>
+    <div class="total" v-if="allMovies.length > 0">Total: {{ amountOfMovies }}</div>
+    <div class="total" v-else>No movies logged this year.</div>
   </section>
 </template>
 
 <script>
-import { confirmDialog } from '../../utils/helpers';
-import { deleteItem } from '../../utils/crudActions';
+import { confirmDialog } from "../../utils/helpers";
+import { deleteItem } from "../../utils/crudActions";
 
 export default {
-  name: 'MovieList',
+  name: "MovieList",
   props: {
     isLoggedIn: Boolean,
     allMovies: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     amountOfMovies: {
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   },
   methods: {
     deleteMovie(movie) {
-      confirmDialog('Do you really want to delete this movie?')
-        .then(() => deleteItem('movies', movie._id, this.$router))
-        .catch((message) => {
+      confirmDialog("Do you really want to delete this movie?")
+        .then(() => deleteItem("movies", movie._id, this.$router))
+        .catch(message => {
           this.$sentry.captureMessage(`Did not delete movie: ${message}`);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" module>
@@ -67,7 +64,7 @@ export default {
   color: white;
   border-radius: 12px;
   padding: 3px 5px;
-  opacity: .5;
+  opacity: 0.5;
   vertical-align: middle;
 }
 </style>
