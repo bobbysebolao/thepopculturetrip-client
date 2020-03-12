@@ -13,7 +13,13 @@
             <span class="form-label">
               Username:
             </span>
-            <input id="username" v-model.trim="login.username" class="form-input" type="text">
+            <input
+              id="username"
+              v-model.trim="login.username"
+              class="form-input"
+              type="text"
+              required
+            />
           </label>
         </div>
 
@@ -22,7 +28,13 @@
             <span class="form-label">
               Password:
             </span>
-            <input id="password" v-model.trim="login.password" class="form-input" type="password">
+            <input
+              id="password"
+              v-model.trim="login.password"
+              class="form-input"
+              type="password"
+              required
+            />
           </label>
         </div>
 
@@ -38,20 +50,21 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: "Login",
   data() {
     return {
       login: {},
-      errors: [],
+      errors: []
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      this.$store.dispatch('login', this.login)
-        .then(() => this.$router.push({ name: 'Index' }))
+      this.$store
+        .dispatch("login", this.login)
+        .then(() => this.$router.push({ name: "Index" }))
         .catch(error => this.errors.push(error.response.data.message));
-    },
-  },
+    }
+  }
 };
 </script>
