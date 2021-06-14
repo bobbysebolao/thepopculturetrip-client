@@ -8,6 +8,7 @@
     "test": "cypress open"
   },
   "dependencies": {
+    "@flourish/live-api": "^4.4.1",
     "@sentry/browser": "^5.11.1",
     "@sentry/integrations": "^5.11.1",
     "axios": ">=0.18.1",

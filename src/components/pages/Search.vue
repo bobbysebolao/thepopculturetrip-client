@@ -72,74 +72,74 @@
 </template>
 
 <script>
-import * as debounce from "lodash.debounce";
-import { search } from "../../utils/search";
+import * as debounce from 'lodash.debounce';
+import { search } from '../../utils/search';
 
 export default {
-  name: "Search",
+  name: 'Search',
   data() {
     return {
-      query: "",
+      query: '',
       searchResults: [],
       showNoResultsMessage: false,
       bookResults: [],
       movieResults: [],
       tvShowResults: [],
       albumResults: [],
-      gameResults: []
+      gameResults: [],
     };
   },
   methods: {
     searchItems() {
       search
         .searchByQuery(this.query)
-        .then(response => {
+        .then((response) => {
           this.searchResults = response;
           this.showNoResultsMessage = response.length <= 0;
           this.filterItemsByType(response);
         })
-        .catch(error => {
+        .catch((error) => {
           this.$sentry.captureException(
-            new Error(`Something went wrong with search: ${error}`)
+            new Error(`Something went wrong with search: ${error}`),
           );
         });
     },
     filterItemsByType() {
       const results = this.searchResults;
-      Array.from(results).forEach(item => {
+      Array.from(results).forEach((item) => {
         switch (item.itemtype) {
-          case "Book":
+          case 'Book':
             this.bookResults.push(item);
             break;
-          case "Movie":
+          case 'Movie':
             this.movieResults.push(item);
             break;
-          case "Show":
+          case 'Show':
             this.tvShowResults.push(item);
             break;
-          case "Album":
+          case 'Album':
             this.albumResults.push(item);
             break;
-          case "Game":
+          case 'Game':
             this.gameResults.push(item);
             break;
           default:
             break;
         }
       });
-    }
+    },
   },
   watch: {
     query: {
-      handler: debounce(function() {
+      handler: debounce(function () {
         this.bookResults = [];
         this.movieResults = [];
         this.tvShowResults = [];
         this.albumResults = [];
         this.gameResults = [];
         this.searchItems();
-      }, 250)
-    }
+      }, 250),
+    },
   },
   computed: {
     hasResults() {
@@ -150,8 +150,8 @@ export default {
     },
     amountOfResults() {
       return this.searchResults.length;
-    }
-  }
+    },
+  },
 };
 </script>
 

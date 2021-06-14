@@ -8,30 +8,28 @@
 </template>
 
 <script>
-import { createItem } from "../../../utils/crudActions";
-import AlbumForm from "../forms/AlbumForm";
+import { createItem } from '../../../utils/crudActions';
+import AlbumForm from '../forms/AlbumForm';
 
 export default {
-  name: "AddAlbum",
+  name: 'AddAlbum',
   components: { AlbumForm },
   data() {
     return {
       album: {},
-      errors: []
+      errors: [],
     };
   },
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
-    }
+    },
   },
   methods: {
     addAlbum(evt) {
       evt.preventDefault();
-      createItem("albums", this.album, this.$router).catch(error =>
-        this.errors.push(error.message)
-      );
-    }
-  }
+      createItem('albums', this.album, this.$router).catch(error => this.errors.push(error.message));
+    },
+  },
 };
 </script>

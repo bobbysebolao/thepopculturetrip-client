@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import { range, getCurrentYear } from "../../../utils/helpers";
+import { range, getCurrentYear } from '../../../utils/helpers';
 
 export default {
-  name: "SelectYear",
+  name: 'SelectYear',
   props: {
     item: Object,
-    type: String
+    type: String,
   },
   computed: {
     currentYear() {
@@ -27,8 +27,8 @@ export default {
     },
     getRange() {
       return range(2019, getCurrentYear() - 1);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

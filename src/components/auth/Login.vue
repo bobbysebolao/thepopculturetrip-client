@@ -50,21 +50,21 @@
 
 <script>
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       login: {},
-      errors: []
+      errors: [],
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       this.$store
-        .dispatch("login", this.login)
-        .then(() => this.$router.push({ name: "Index" }))
+        .dispatch('login', this.login)
+        .then(() => this.$router.push({ name: 'Index' }))
         .catch(error => this.errors.push(error.response.data.message));
-    }
-  }
+    },
+  },
 };
 </script>

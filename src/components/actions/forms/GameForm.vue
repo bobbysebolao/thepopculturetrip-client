@@ -53,14 +53,14 @@
 </template>
 
 <script>
-import SelectYear from "./SelectYear";
+import SelectYear from './SelectYear';
 
 export default {
-  name: "GameForm",
+  name: 'GameForm',
   components: { SelectYear },
   props: {
     game: Object,
-    errors: Array
-  }
+    errors: Array,
+  },
 };
 </script>

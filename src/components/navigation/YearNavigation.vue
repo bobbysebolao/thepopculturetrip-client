@@ -11,15 +11,15 @@
 </template>
 
 <script>
-import { getCurrentYear, range } from "../../utils/helpers";
+import { getCurrentYear, range } from '../../utils/helpers';
 
 export default {
-  name: "YearNavigation",
+  name: 'YearNavigation',
   methods: {
     getRange() {
       return range(2019, getCurrentYear());
-    }
-  }
+    },
+  },
 };
 </script>
 

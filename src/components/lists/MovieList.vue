@@ -20,31 +20,31 @@
 </template>
 
 <script>
-import { confirmDialog } from "../../utils/helpers";
-import { deleteItem } from "../../utils/crudActions";
+import { confirmDialog } from '../../utils/helpers';
+import { deleteItem } from '../../utils/crudActions';
 
 export default {
-  name: "MovieList",
+  name: 'MovieList',
   props: {
     isLoggedIn: Boolean,
     allMovies: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     amountOfMovies: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   methods: {
     deleteMovie(movie) {
-      confirmDialog("Do you really want to delete this movie?")
-        .then(() => deleteItem("movies", movie._id, this.$router))
-        .catch(message => {
+      confirmDialog('Do you really want to delete this movie?')
+        .then(() => deleteItem('movies', movie._id, this.$router))
+        .catch((message) => {
           this.$sentry.captureMessage(`Did not delete movie: ${message}`);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" module>

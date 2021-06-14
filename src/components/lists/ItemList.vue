@@ -39,33 +39,33 @@
 </template>
 
 <script>
-import { fetchAllItemsByYear } from "../../utils/crudActions";
-import BookList from "./BookList";
-import MovieList from "./MovieList";
-import ShowList from "./ShowList";
-import AlbumList from "./AlbumList";
-import GameList from "./GameList";
+import { fetchAllItemsByYear } from '../../utils/crudActions';
+import BookList from './BookList';
+import MovieList from './MovieList';
+import ShowList from './ShowList';
+import AlbumList from './AlbumList';
+import GameList from './GameList';
 
 export default {
-  name: "ItemList",
+  name: 'ItemList',
   components: {
     BookList,
     MovieList,
     ShowList,
     AlbumList,
-    GameList
+    GameList,
   },
   props: {
     yearSelection: {
       type: [String, Number],
-      default: 2007
-    }
+      default: 2007,
+    },
   },
   data() {
     return {
       items: [],
       loading: true,
-      errored: false
+      errored: false,
     };
   },
   computed: {
@@ -89,18 +89,18 @@ export default {
     },
     noItems() {
       return (
-        this.noShows &&
-        this.noMovies &&
-        this.noBooks &&
-        this.noAlbums &&
-        this.noGames
+        this.noShows
+        && this.noMovies
+        && this.noBooks
+        && this.noAlbums
+        && this.noGames
       );
-    }
+    },
   },
   watch: {
-    "$route.params.year": function(year) {
+    '$route.params.year': function (year) {
       this.fetchItems(year);
-    }
+    },
   },
   created() {
     this.fetchItems(this.yearSelection);
@@ -109,17 +109,17 @@ export default {
     fetchItems(chosenYear) {
       fetchAllItemsByYear(chosenYear)
         .then(response => (this.items = response))
-        .catch(error => {
+        .catch((error) => {
           this.$sentry.captureException(
-            new Error(`Could not fetch item list: ${error}`)
+            new Error(`Could not fetch item list: ${error}`),
           );
           this.errored = true;
         })
         .finally(() => {
           this.loading = false;
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

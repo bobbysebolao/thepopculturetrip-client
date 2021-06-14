@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import ItemsInCurrentYear from "./charts/ItemsInCurrentYear.vue";
-import ItemsLastYear from "./charts/ItemsLastYear";
-import TotalItems from "./charts/TotalItems";
-import { getCurrentYear } from "../../utils/helpers";
+import ItemsInCurrentYear from './charts/ItemsInCurrentYear.vue';
+import ItemsLastYear from './charts/ItemsLastYear';
+import TotalItems from './charts/TotalItems';
+import { getCurrentYear } from '../../utils/helpers';
 
 export default {
-  name: "Stats",
+  name: 'Stats',
   components: { ItemsInCurrentYear, ItemsLastYear, TotalItems },
   computed: {
     getCurrentYear() {
@@ -26,8 +26,8 @@ export default {
     },
     getLastYear() {
       return getCurrentYear() - 1;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

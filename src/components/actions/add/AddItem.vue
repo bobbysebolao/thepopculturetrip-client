@@ -13,26 +13,28 @@
 </template>
 
 <script>
-import AddBook from "./AddBook";
-import AddMovie from "./AddMovie";
-import AddShow from "./AddShow";
-import AddAlbum from "./AddAlbum";
-import AddGame from "./AddGame";
+import AddBook from './AddBook';
+import AddMovie from './AddMovie';
+import AddShow from './AddShow';
+import AddAlbum from './AddAlbum';
+import AddGame from './AddGame';
 
 export default {
-  name: "AddItem",
-  components: { AddBook, AddMovie, AddShow, AddAlbum, AddGame },
+  name: 'AddItem',
+  components: {
+    AddBook, AddMovie, AddShow, AddAlbum, AddGame,
+  },
   data() {
     return {
-      currentTab: "Book",
-      tabs: ["Book", "Movie", "Show", "Album", "Game"]
+      currentTab: 'Book',
+      tabs: ['Book', 'Movie', 'Show', 'Album', 'Game'],
     };
   },
   computed: {
     currentTabComponent() {
       return `add-${this.currentTab}`;
-    }
-  }
+    },
+  },
 };
 </script>
 

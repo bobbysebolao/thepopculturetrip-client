@@ -53,14 +53,14 @@
 </template>
 
 <script>
-import SelectYear from "./SelectYear";
+import SelectYear from './SelectYear';
 
 export default {
-  name: "AlbumForm",
+  name: 'AlbumForm',
   components: { SelectYear },
   props: {
     album: Object,
-    errors: Array
-  }
+    errors: Array,
+  },
 };
 </script>

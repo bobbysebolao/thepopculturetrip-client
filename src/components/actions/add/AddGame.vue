@@ -8,30 +8,28 @@
 </template>
 
 <script>
-import { createItem } from "../../../utils/crudActions";
-import GameForm from "../forms/GameForm";
+import { createItem } from '../../../utils/crudActions';
+import GameForm from '../forms/GameForm';
 
 export default {
-  name: "AddGame",
+  name: 'AddGame',
   components: { GameForm },
   data() {
     return {
       game: {},
-      errors: []
+      errors: [],
     };
   },
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
-    }
+    },
   },
   methods: {
     addGame(evt) {
       evt.preventDefault();
-      createItem("games", this.game, this.$router).catch(error =>
-        this.errors.push(error.message)
-      );
-    }
-  }
+      createItem('games', this.game, this.$router).catch(error => this.errors.push(error.message));
+    },
+  },
 };
 </script>

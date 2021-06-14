@@ -22,6 +22,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'Stories' }">
+          Stories
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'AddItem' }" v-if="isLoggedIn">
           Add New Item
         </router-link>

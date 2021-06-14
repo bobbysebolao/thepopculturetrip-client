@@ -20,31 +20,31 @@
 </template>
 
 <script>
-import { confirmDialog } from "../../utils/helpers";
-import { deleteItem } from "../../utils/crudActions";
+import { confirmDialog } from '../../utils/helpers';
+import { deleteItem } from '../../utils/crudActions';
 
 export default {
-  name: "AlbumList",
+  name: 'AlbumList',
   props: {
     isLoggedIn: Boolean,
     allAlbums: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     amountOfAlbums: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   methods: {
     deleteAlbum(album) {
-      confirmDialog("Do you really want to delete this album?")
-        .then(() => deleteItem("albums", album._id, this.$router))
-        .catch(message => {
+      confirmDialog('Do you really want to delete this album?')
+        .then(() => deleteItem('albums', album._id, this.$router))
+        .catch((message) => {
           this.$sentry.captureMessage(`Did not delete album: ${message}`);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

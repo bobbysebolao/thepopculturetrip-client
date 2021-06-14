@@ -1,5 +1,5 @@
-import axios from "axios";
-import Cookie from "js-cookie";
+import axios from 'axios';
+import Cookie from 'js-cookie';
 
 /**
  * ex: host.com/api/years/year/2017
@@ -38,10 +38,10 @@ export function createItem(type, obj, router) {
     .post(`${process.env.VUE_APP_API_BASE_URL}/${type}/`, obj, {
       withCredentials: true,
       headers: {
-        Authorization: `Bearer ${Cookie.get("mevn-token")}`
-      }
+        Authorization: `Bearer ${Cookie.get('mevn-token')}`,
+      },
     })
-    .then(() => router.push({ name: "Year", params: { year: obj.belongs_to_year } }));
+    .then(() => router.push({ name: 'Year', params: { year: obj.belongs_to_year } }));
 }
 
 /**
@@ -57,10 +57,10 @@ export function updateItem(type, id, obj, router) {
     .put(`${process.env.VUE_APP_API_BASE_URL}/${type}/${id}`, obj, {
       withCredentials: true,
       headers: {
-        Authorization: `Bearer ${Cookie.get("mevn-token")}`
-      }
+        Authorization: `Bearer ${Cookie.get('mevn-token')}`,
+      },
     })
-    .then(() => router.push({ name: "Year", params: { year: obj.belongs_to_year } }));
+    .then(() => router.push({ name: 'Year', params: { year: obj.belongs_to_year } }));
 }
 
 /**
@@ -75,8 +75,8 @@ export function deleteItem(type, id, router) {
     .delete(`${process.env.VUE_APP_API_BASE_URL}/${type}/${id}`, {
       withCredentials: true,
       headers: {
-        Authorization: `Bearer ${Cookie.get("mevn-token")}`
-      }
+        Authorization: `Bearer ${Cookie.get('mevn-token')}`,
+      },
     })
     .then(() => router.go());
 }
